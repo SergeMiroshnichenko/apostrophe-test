@@ -30,5 +30,16 @@
           }
       }) }}
     </div>
+    <div class="container">
+      <p>Here is some links to navigate through the site</p>
+      {{
+        apos.area(data.page, 'navigation', {
+          widgets: {
+            link: {},
+            'page-link': {}
+          }
+        })
+      }}
+    </div>
   </div>
 {% endblock %}
