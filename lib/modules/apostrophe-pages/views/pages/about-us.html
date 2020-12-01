@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="main-content">
+    <div class="container">
+      <h3>About us</h3>
+      <p>This is a page which tells you about our company</p>
+      {{ apos.area(data.page, 'body', {
+      widgets: {
+        'apostrophe-images': {
+          size: 'full'
+        },
+        'apostrophe-rich-text': {
+          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+          styles: [
+            { name: 'Heading', element: 'h3' },
+            { name: 'Subheading', element: 'h4' },
+            { name: 'Paragraph', element: 'p' }
+          ]
+        }
+      }
+    }) }}
+    </div>
+  </div>
+{% endblock %}

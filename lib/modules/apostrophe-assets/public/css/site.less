@@ -1,16 +1,61 @@
 @import "utils/reset.less";
 
 // Delete the boilerplate CSS below when you are ready to dive in and customize your sites:
-body { background-color: @apos-light; }
+body {
+   background-color: @apos-light;
+   font-family: sans; 
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header {
+  width: 100%;
+  background-color: @apos-primary;
+  color: @apos-white;
+  
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.nav {
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    display: block;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: @apos-white;
+    transition: .3s ease;
+    cursor: pointer;
+
+    &:not(.current):hover {
+      opacity: .7;
+    }
+
+    &.current {
+      cursor: default;
+    }
+  }
+}
 
 .main-content {
   font-family: 'Karla', sans-serif;
-  margin: 200px auto;
-  padding: 20px;
-  max-width: 500px;
+  padding: 75px 0;
   color: @apos-white;
   background-color: @apos-primary;
-  .apos-drop-shadow;
 
   .login-link {
     float: right;

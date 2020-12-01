@@ -24,6 +24,45 @@
     We recommend you use the beforeMain block for global page components
     like headers or navigation.
   #}
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <nav class="header__nav nav">
+          <ul class="nav__list">
+            <li class="nav__list-item">
+              <a 
+                href="{{ data.home._url }}" 
+                class="nav__link 
+                  {% if data.page and
+                    data.home._id == data.page._id
+                  %}
+                    current
+                  {% endif %}"
+              >
+                {{ data.home.title }}
+              </a>
+            </li>
+            {% for tab in data.home._children %}
+              <li class="nav__list-item">
+                <a 
+                  href="{{ tab._url }}" 
+                  class="nav__link 
+                    {% if data.page and
+                      (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+                    %}
+                      current
+                    {% endif %}"
+                >
+                  {{ tab.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
 {% endblock %}
 
 {% block main %}
