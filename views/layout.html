@@ -41,6 +41,7 @@
               >
                 {{ data.home.title }}
               </a>
+              
             </li>
             {% for tab in data.home._children %}
               <li class="nav__list-item">
@@ -55,6 +56,13 @@
                 >
                   {{ tab.title }}
                 </a>
+                {% if tab._children.length %}
+                  <ul class="nav__dropmenu dropmenu">
+                    {% for child in tab._children %}
+                      <li class="dropmenu__item"><a href="{{ child._url }}" class="dropmenu__link nav__link">{{ child.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
               </li>
             {% endfor %}
           </ul>
@@ -63,6 +71,18 @@
     </div>
   </header>
 
+  {% if data.page._ancestors.length %}
+    <div class="breadcrumbs">
+      <div class="container">
+        <ul class="breadcrumbs__list">
+          {% for ancestor in data.page._ancestors%}
+            <li><a href="{{ ancestor._url }}">{{ ancestor.title }}</a></li>
+          {% endfor %}
+          <li><span>{{ data.page.title }}</span></li>
+        </ul>
+      </div>
+    </div>
+  {% endif %}
 {% endblock %}
 
 {% block main %}
@@ -71,6 +91,7 @@
     this block. It is safe to assume this is where your page-specific content
     should go.
   #}
+
 {% endblock %}
 
 {% block afterMain %}

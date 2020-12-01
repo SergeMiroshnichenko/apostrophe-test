@@ -1,9 +1,14 @@
 @import "utils/reset.less";
 
 // Delete the boilerplate CSS below when you are ready to dive in and customize your sites:
+html {
+  font-size: 16px;
+}
+
 body {
    background-color: @apos-light;
    font-family: sans; 
+   font-size: 16px;
 }
 
 .container {
@@ -14,8 +19,9 @@ body {
 
 .header {
   width: 100%;
-  background-color: @apos-primary;
+  background-color: @apos-dark;
   color: @apos-white;
+  border-bottom: 1px solid fade(@apos-black, 23%);
   
   &__inner {
     display: flex;
@@ -32,6 +38,20 @@ body {
     align-items: center;
   }
 
+  &__list-item {
+    position: relative;
+    transition: .3s ease;
+
+    &:hover {
+      .apos-drop-shadow;
+
+      .nav__dropmenu {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
   &__link {
     display: block;
     padding: 20px 40px;
@@ -41,12 +61,65 @@ body {
     transition: .3s ease;
     cursor: pointer;
 
-    &:not(.current):hover {
+    &:hover {
       opacity: .7;
     }
+  }
 
-    &.current {
-      cursor: default;
+  &__dropmenu {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    transition: .3s ease;
+    background-color: @apos-dark;
+    .apos-drop-shadow;  
+  }
+}
+
+.dropmenu {
+  
+  &__link {
+    padding: 10px 15px;
+  }
+}
+
+.breadcrumbs {
+  padding: 30px 0;
+
+  &__list {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  li {
+    font-size: 0.85rem;
+    margin-right: 5px;
+
+    &:not(:last-child) {
+
+      &::after {
+        position: relative;
+        content: ' /';
+        font-size: inherit;
+        line-height: inherit;
+      }
+    }
+
+    &:last-child {
+      font-weight: 600;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: @apos-dark;
+    transition: .3s ease;
+
+    &:hover {
+      opacity: .7;
     }
   }
 }
@@ -54,8 +127,8 @@ body {
 .main-content {
   font-family: 'Karla', sans-serif;
   padding: 75px 0;
-  color: @apos-white;
-  background-color: @apos-primary;
+  color: @apos-dark;
+  background-color: @apos-light;
 
   .login-link {
     float: right;
