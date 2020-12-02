@@ -3,23 +3,41 @@
 {% block main %}
   <div class="main-content">
     <div class="container">
-      <h3>{{ data.page.title }}</h3>
-      <p>This is a page which tells you about our company</p>
+      <h1>{{ data.page.title }}</h1>
+      <div class="subtitle">
+        {{ 
+          apos.singleton(data.page, 'subTitle', 'apostrophe-rich-text', {
+            toolbar: [ 'Styles', 'Bold', 'Italic' ],
+            styles: [
+              { name: 'Heading', element: 'h4' }
+            ]
+          })
+        }}
+      </div>
       {{ apos.area(data.page, 'body', {
-      widgets: {
-        'apostrophe-images': {
-          size: 'full'
-        },
-        'apostrophe-rich-text': {
-          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
-          styles: [
-            { name: 'Heading', element: 'h3' },
-            { name: 'Subheading', element: 'h4' },
-            { name: 'Paragraph', element: 'p' }
-          ]
+        widgets: {
+          'apostrophe-images': {
+            size: 'full'
+          },
+          'apostrophe-rich-text': {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+            styles: [
+              { name: 'Heading', element: 'h3' },
+              { name: 'Subheading', element: 'h4' },
+              { name: 'Paragraph', element: 'p' }
+            ]
+          },
+          'people': {},
+          'page-link': {
+            special: false
+          }
         }
-      }
     }) }}
+    </div>
+    <div class="container">
+      {{
+        apos.singleton(data.page, 'imagesGrid', 'two-column', {})
+      }}
     </div>
     <div class="container">
       {{

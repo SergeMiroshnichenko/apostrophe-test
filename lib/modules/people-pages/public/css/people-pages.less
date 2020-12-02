@@ -1,0 +1,27 @@
+.tag-filters {
+
+    &__list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    li {
+        margin-right: 5px;
+    }
+
+    .link {
+        color: fade(@apos-dark, 65%) !important;
+
+        &.current {
+            font-weight: 500;
+
+            &::after {
+                position: relative;
+                content: ' X';
+                color: @apos-red;
+                font-weight: 400;
+            }
+        }
+    }
+}

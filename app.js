@@ -23,9 +23,23 @@ var apos = require('apostrophe')({
     'apostrophe-templates': { 
       viewsFolderFallback: path.join(__dirname, 'views') 
     },
+    'two-column-widgets': {},
     'link-widgets': {},
     'page-link-widgets': {},
-    'drawer-widgets': {}
-  
+    'drawer-widgets': {},
+    'people': {},
+    'people-widgets': {},
+    'people-pages': {},
+    'jobs': {},
+    'jobs-pages': {
+      extend: 'apostrophe-pieces-pages',
+      construct: function (self, options) {
+        self.beforeIndex = function (req, callback) {
+          req.notFound = true;
+      
+          return callback(null);
+        };
+      }
+    }
   }
 });

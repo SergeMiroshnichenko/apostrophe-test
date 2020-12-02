@@ -124,6 +124,38 @@ body {
   }
 }
 
+.link {
+
+  text-decoration: none;
+  font-size: 1rem;
+  transition: .3s ease;
+  padding: 10px 0;
+  
+  &:hover {
+      opacity: .7;
+  }
+
+  &.default, .default  {
+    color: @apos-blue !important;
+  }
+
+  &.primary, .primary  {
+      color: @apos-green !important;    
+  }
+
+  &.danger, .danger  {
+      color: @apos-red !important;
+  }
+
+  &.dense, .dense  {
+      color: fade(@apos-dark, 65%) !important;
+  }
+
+  &.white, .white  {
+      color: @apos-light !important;
+  }
+}
+
 .main-content {
   font-family: 'Karla', sans-serif;
   padding: 75px 0;
@@ -136,16 +168,35 @@ body {
   }
 
   // Basic rich-text editor styles:
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.85rem;
+  }
+
   h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
   h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    margin: 0.6rem 0;
   }
 
-  strong { font-weight: bold; }
-  em { font-style: italic; }
+  p {
+    margin: 0.6rem 0;
+  }
+
+  strong {
+    font-weight: bold; 
+  }
+
+  em {
+    font-style: italic; 
+  }
 }

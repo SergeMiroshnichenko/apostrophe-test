@@ -1,0 +1,81 @@
+.person-listing {
+    width: 100%;
+
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    &__tile {
+        flex-basis: 25%;
+        max-width: 25%;
+        padding: 15px;
+
+        @media (max-width: 991px) {
+            flex-basis: calc(100% / 3);
+            max-width: calc(100% / 3);
+        }
+
+        @media (max-width: 767px) {
+            flex-basis: 50%;
+            max-width: 50%;
+        }
+
+        @media (max-width: 475px) {
+            flex-basis: 100%;
+            max-width: 100%
+        }
+    }
+}
+
+.person-card {
+    border: 1px solid @apos-dark;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+
+    @media (max-width: 475px) {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    &__avatar {
+        width: 128px;
+        height: 128px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__info {
+
+        h4 {
+            color: @apos-dark;
+
+            &>a {
+                color: @apos-dark;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        a {
+            color: @apos-green;
+            text-decoration: none;
+            transition: .3s ease;
+            
+            &:hover {
+                color: @apos-dark;
+            }
+        }
+    }
+}
