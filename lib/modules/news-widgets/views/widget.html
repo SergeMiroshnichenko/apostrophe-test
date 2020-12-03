@@ -1,0 +1,25 @@
+<div class="news-listing">
+    <div class="news-listing__inner">
+        {% for piece in data.widget._pieces %}
+            <div class="news-listing__tile">
+                <div class="news-card">
+                    <a href="{{ piece._url }}" class="news-card__link--abs"></a>
+                    <div class="news-card__image">
+                        {% set image = apos.images.first(piece.image) %}
+                        {% if image %}
+                            <img src="{{ apos.attachments.url(image, { size: 'one-sixth' }) }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="news-card__info">
+                        <h4 class="news-card__title">
+                            {{ piece.title }}
+                        </h4>
+                        <p class="news-card__description">
+                            {{ piece.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

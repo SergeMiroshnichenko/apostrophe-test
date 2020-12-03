@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <div class="main-content">
+        <div class="container">
+            <p style="text-align: center;">
+                If you are admin of this site, <br>
+                you can log in and manage it. <br>
+                {% if not data.user %}
+                    <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -27,19 +27,10 @@ var apos = require('apostrophe')({
     'link-widgets': {},
     'page-link-widgets': {},
     'drawer-widgets': {},
-    'people': {},
-    'people-widgets': {},
-    'people-pages': {},
-    'jobs': {},
-    'jobs-pages': {
-      extend: 'apostrophe-pieces-pages',
-      construct: function (self, options) {
-        self.beforeIndex = function (req, callback) {
-          req.notFound = true;
-      
-          return callback(null);
-        };
-      }
-    }
+    'news': {},
+    'news-widgets': {},
+    'news-pages': {},
+    'banner-widgets': {},
+    'text-note-widgets': {}
   }
 });

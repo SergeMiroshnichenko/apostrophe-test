@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}{{ data.piece.title }}{% endblock %}
+
+{% block main %}
+
+    <div class="main-content">
+        
+        <div class="news-page">
+            <div class="container">
+                <div class="news-page__backward">
+                    <a class="link dense" href="{{ data.page._url }}">< All news</a>
+                </div>
+
+                <div class="news-page__heading">
+                    <h1 class="news-page__title">
+                        {{ data.piece.title }}
+                    </h1>
+                    <div class="news-page__date">
+                        {{ data.piece.createdAt | date('DD.MM.YYYY') }}
+                    </div>
+                    {% if data.piece._tags %}
+                        <ul class="news-page__tags">
+                            <li>Tags: </li>
+                            {% for tag in data.piece.tags %}
+                                <li><a href="{{ data.page.url | build({ tags: { $addToSet: tag.value } }) }}">{{ tag.label }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div class="news-page__banner">
+                    {{ apos.singleton(data.piece, 'image', 'apostrophe-images') }}
+                </div>
+
+                <div class="news-page__content">
+                    {{ apos.singleton(data.piece, 'content', 'apostrophe-rich-text') }}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

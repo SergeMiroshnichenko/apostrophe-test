@@ -1,0 +1,11 @@
+<div class="banner">
+    <div class="banner__image">
+        {% set image = apos.images.first(data.widget.image) %}
+        {% if image %}
+            <img src="{{ apos.attachments.url(image, { size: 'max' }) }}"/>
+        {% endif %}
+    </div>
+    {% if data.widget.title %}
+        <h4 class="banner__title {{ data.widget.titleStyle }}">{{ data.widget.title }}</h4>
+    {% endif %}
+</div>

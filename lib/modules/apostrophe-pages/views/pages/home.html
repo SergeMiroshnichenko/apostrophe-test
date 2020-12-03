@@ -8,13 +8,17 @@
 {% block main %}
   <div class="main-content">
     <div class="container">
-      <h3> {{ data.page.title }}
-        {% if not data.user %}
-          <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
-        {% endif %}
-      </h3>
+      <h3> {{ data.page.title }}</h3>
       <p>This is a very bare bones Apostrophe project. Now, get to work and make a real website!</p>
-      {{ apos.area(data.page, 'body', {
+      {{ apos.area(data.page, 'pageTop', {
+          widgets: {
+            'news': {},
+            'banner': {}
+          }
+      }) }}
+    </div>
+    <div class="container">
+      {{ apos.area(data.page, 'content', {
           widgets: {
             'apostrophe-images': {
               size: 'full'
@@ -22,24 +26,33 @@
             'apostrophe-rich-text': {
               toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
               styles: [
-                { name: 'Heading', element: 'h3' },
-                { name: 'Subheading', element: 'h4' },
-                { name: 'Paragraph', element: 'p' }
+                { 
+                  name: 'Heading', 
+                  element: 'h3' 
+                },
+                { 
+                  name: 'Subheading', 
+                  element: 'h4' 
+                },
+                { 
+                  name: 'Paragraph', 
+                  element: 'p' 
+                },
+                {
+                  element: 'p',
+                  name: 'Featured-text',
+                  attributes: { class: 'featured-text' }
+                }
               ]
-            }
-          }
-      }) }}
-    </div>
-    <div class="container">
-      <p>Here is some links to navigate through the site</p>
-      {{
-        apos.area(data.page, 'navigation', {
-          widgets: {
-            link: {},
+            },
+            'news': {},
+            'banner': {},
+            'two-column': {},
+            'drawer': {},
+            'text-note': {},
             'page-link': {}
           }
-        })
-      }}
+      }) }}
     </div>
   </div>
 {% endblock %}

@@ -27,17 +27,41 @@
               { name: 'Paragraph', element: 'p' }
             ]
           },
-          'people': {},
+          'news': {},
+          'banner': {},
+          'text-note': {},
           'page-link': {
             special: false
           }
         }
-    }) }}
+      }) }}
     </div>
     <div class="container">
       {{
         apos.singleton(data.page, 'imagesGrid', 'two-column', {})
       }}
+    </div>
+    <div class="container">
+      {{ apos.area(data.page, 'section', {
+        widgets: {
+          'apostrophe-images': {
+            size: 'full'
+          },
+          'apostrophe-rich-text': {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+            styles: [
+              { name: 'Heading', element: 'h3' },
+              { name: 'Subheading', element: 'h4' },
+              { name: 'Paragraph', element: 'p' }
+            ]
+          },
+          'news': {},
+          'text-note': {},
+          'page-link': {
+            special: false
+          }
+        }
+      }) }}
     </div>
     <div class="container">
       {{

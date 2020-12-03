@@ -1,0 +1,23 @@
+<div class="note">
+    <div class="note__content">
+        {{ apos.area(data.widget, 'noteArea', {
+          widgets: {
+            'apostrophe-rich-text': {
+              toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+              styles: [
+                { 
+                  name: 'Heading', 
+                  element: 'h4.note__title',
+                  attributes: { class: 'note__title' } 
+                },
+                {
+                  name: 'Parapgraph',
+                  element: 'p.note__text',
+                  attributes: { class: 'note__text' }
+                }
+              ]
+            }
+          }
+      }) }}
+    </div>
+</div>

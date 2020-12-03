@@ -3,7 +3,19 @@
     justify-content: space-between;
     align-items: flex-start;
 
+    @media (max-width: 767px) {
+        flex-wrap: wrap;
+    }
+
     &>div {
         flex-basis: calc(50% - 25px);
+
+        @media (max-width: 767px) {
+            flex-basis: 100%;
+
+            &:first-child {
+                margin-bottom: 20px;
+            }
+        }
     }
 }

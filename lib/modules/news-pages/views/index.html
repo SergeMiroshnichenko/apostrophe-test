@@ -5,22 +5,22 @@
     <div class="main-content">
 
         <div class="container">
-            <h1>{{ data.page.title }}</h1>
+            <h1 class="page-title">{{ data.page.title }}</h1>
         </div>
         
         <div class="tag-filters">
             <div class="container">
                 <h4>Filter by: </h4>
                 <ul class="tag-filters__list">
-                    <li>Jobs: </li>
-                    {% for job in data.piecesFilters.jobs %}
+                    <li>Tags: </li>
+                    {% for tag in data.piecesFilters.tags %}
                         <li>
-                            {% if apos.utils.contains(data.query.jobs, job.value) %}
-                                <a href="{{ data.url | build({ jobs: { $pull: job.value } }) }}" class="link current">
+                            {% if apos.utils.contains(data.query.tags, tag.value) %}
+                                <a href="{{ data.url | build({ tags: { $pull: tag.value } }) }}" class="link current">
                             {% else %}
-                                <a href="{{ data.url | build({ jobs: { $addToSet: job.value } }) }}" class="link">
+                                <a href="{{ data.url | build({ tags: { $addToSet: tag.value } }) }}" class="link">
                             {% endif %}
-                                {{ job.label }}
+                                {{ tag.label }}
                             </a>
                         </li>
                     {% endfor %}
@@ -28,27 +28,26 @@
             </div>
         </div>
 
-        <div class="people-listing">
+        <div class="news-listing">
             <div class="container">
-                <div class="person-listing__inner">
+                <div class="news-listing__inner">
                     {% for piece in data.pieces %}
-                        <div class="person-listing__tile">
-                            <div class="person-card">
-                                <div class="person-card__avatar">
-                                    {% set image = apos.images.first(piece.thumbnail) %}
+                        <div class="news-listing__tile">
+                            <div class="news-card">
+                                <a href="{{ piece._url }}" class="news-card__link--abs"></a>
+                                <div class="news-card__image">
+                                    {% set image = apos.images.first(piece.image) %}
                                     {% if image %}
                                         <img src="{{ apos.attachments.url(image, { size: 'one-sixth' }) }}"/>
                                     {% endif %}
                                 </div>
-                                <div class="person-card__info">
-                                    <h4>
-                                        <a href="{{ piece._url }}">{{ piece.title }}</a>
+                                <div class="news-card__info">
+                                    <h4 class="news-card__title">
+                                        {{ piece.title }}
                                     </h4>
-                                    {% if piece.phone %}
-                                        <a href="tel:{{ piece.phone }}">
-                                            {{ piece.phone }}
-                                        </a>
-                                    {% endif %}
+                                    <p class="news-card__description">
+                                        {{ piece.description }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -65,3 +64,4 @@
     </div>
 
 {% endblock %}
+
